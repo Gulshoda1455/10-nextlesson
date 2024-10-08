@@ -1,5 +1,12 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
+import Logo from "./image/siteLogo.svg";
+import Contact from "./image/contact.svg";
+import Lupa from "./image/search.svg";
+import Heart from "./image/heart.love.svg";
+import Korzinka from "./image/korzinkaFur.svg";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,6 +30,38 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+         <header className="p-5">
+            <div className="container">
+                <div className="flex items-center justify-between">
+                    <Image src={Logo} alt="logo" width={185} height={41} priority />
+                    <nav className="flex items-center justify-between gap-40">
+                        <ul className="flex items-center justify-between gap-10">
+                            <li>
+                               <Link href='/page/Home' className="Link" >Product</Link>
+                            </li>
+                            <li>
+                               <Link   href='/page/Users' className="Link" >Admin</Link>
+                            </li>
+                           
+                        </ul>
+                        <div className="flex items-center justify-between gap-8 ">
+                            <a href="/">
+                                <Image src={Contact} alt="contact" />
+                             </a>
+                             <a href="/">
+                                <Image src={Lupa} alt="lupa" />
+                             </a>
+                             <a href="/">
+                                <Image src={Heart} alt="heart" />
+                             </a>
+                             <a href="/">
+                                <Image src={Korzinka} alt="korzinka" />
+                             </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
         {children}
       </body>
     </html>
